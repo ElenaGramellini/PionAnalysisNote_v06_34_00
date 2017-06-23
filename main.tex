@@ -1,0 +1,149 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{a4}
+%\usepackage{amssymb}
+\usepackage{color}
+\usepackage{lineno}
+\usepackage{ulem}
+\usepackage{enumerate}
+\usepackage{comment}
+
+\usepackage[left=2.5cm,right=2cm,top=2.5cm,bottom=2.cm]{geometry} 
+
+%% for long url reference
+\usepackage{hyperref}
+\usepackage{url}
+\makeatletter
+\def\url@mystyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{my}
+
+
+
+\renewcommand{\thefootnote}{\alph{footnote}}
+\renewcommand{\topfraction}{.99}
+\renewcommand{\bottomfraction}{.99}
+
+\title{Inclusive Negative Pion Cross-Section for Run-I and Run-II}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\Journal#1#2#3#4{{#1} {\bf #2}, #3 (#4)}
+\def\etal{{\it et\ al.}}
+\def\numunue{\nu_\mu\rightarrow\nu_e}
+\def\numunutau{\nu_\mu\rightarrow\nu_\tau}
+\def\nuebar{\bar\nu_e}
+\def\nue{\nu_e}
+\def\nutau{\nu_\tau}
+\def\numubar{\bar\nu_\mu}
+\def\numu{\nu_\mu}
+\def\ra{\rightarrow}
+\def\numubarnuebar{\bar\nu_\mu\rightarrow\bar\nu_e}
+\def\nuebarnumubar{\bar\nu_e\rightarrow\bar\nu_\mu}
+\def\osc{\rightsquigarrow}
+\def\inteni{{\cal I}_{pot}}
+\def\fmerit{{\cal F}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{flushright}
+{\tt version 0.5}\\ 
+\today
+\end{flushright}
+\vspace*{0.6cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\linenumbers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+{\Large \bf Inclusive Negative Pion Cross-Section for Run-I and Run-II} 
+\vspace*{1.6cm}
+\setcounter{footnote}{0}  
+\def\A{\kern+.6ex\lower.42ex\hbox{$\scriptstyle \iota$}\kern-1.20ex a}
+\def\E{\kern+.5ex\lower.42ex\hbox{$\scriptstyle \iota$}\kern-1.10ex e}
+\small
+\newcommand{\Aname}[2]{#1}
+\def\titlefoot#1{\vspace{-0.3cm}\begin{center}{\bf #1}\end{center}}
+
+\Aname{J.~Asaadi}{UTA},
+
+\titlefoot{University of Texas at Arlington\label{UTA}}
+%\vspace{-0.1cm}
+
+\Aname{E. Gramellini}{Yale},
+
+\titlefoot{Yale University\label{Yale}}
+%\vspace{-0.1cm}
+
+\Aname{G. Pulliam}{Syracuse},
+
+\titlefoot{Syracuse University\label{Syracuse}}
+%\vspace{-0.1cm}
+
+\end{center}
+\vspace*{1cm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ABSTRACT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+\begin{abstract}
+
+We present the study of the total charged pion-argon nucleus interaction cross-section performed at the LArIAT experiment. The LArIAT beamline instruments are used to identify candidate pion tracks and measure their momentum prior to entering the liquid argon time projection chamber (LArTPC). We then use the calorimetric reconstruction of the LArTPC to perform the measurement of the total differential cross-section for interacting pions ($\pi$) on an argon (Ar) nucleus. The $\pi$-Ar total cross-section had previously never been measured and having this data provides crucial input to neutrino-nucleus interactions given the abundance of pions produced. 
+
+\end{abstract} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Table of content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SECTION 1: Introduction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\input{section1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SECTION 2: Data Samples
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{section2}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SECTION 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\input{section3}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SECTION 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\section{\textcolor{blue}{R\&D Strategy}}
+%\include{section4}
+\newpage
+\input{section4}
+
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  BIBLIOGRAPHY	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{reference}
+\input{reference}
+
+
+
+\end{document}
