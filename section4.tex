@@ -21,7 +21,7 @@ Table \ref{tab:CutSummary} gives the event reduction for the negative polarity $
 	\hline
 	$\pi, \mu, e$ Mass Selection & 20,653 & 493,455 & 514,108 \\
 	\hline
-	20~ns $<$TOF$<$27 & 20,577 & 485,159 & 55736 \\
+	20~ns $<$TOF$<$27 & 20,577 & 485,159 & 505,736 \\
 	\hline
 	Requiring an upstream TPC Track within $z<2$cm & 18,882  & 403,561   &  422,443 \\
 	\hline
@@ -138,6 +138,26 @@ Table \ref{tab:MCPercentageTable} summarizes the fraction of events passing all 
 
 It should also be noted that the efficiency for selecting $K^{-}$ events is likely to be overly inflated here both because they make up a very small percentage of the negative polarity beam $< 1\%$ and because these cuts do not take into account the beamline mass filter applied to the data.
 
+Figure \ref{fig:TrueInteractionTypes} shows the breakdown of $\pi^{-}$-Argon interaction types as a function of true kinetic energy taken from the pion DDMC. One important feature of this plot to note that pion capture-at-rest dominates. This process is not one which should be included in the total $\pi^{-}$-Argon interaction cross-section.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.33]{./images/PiArIntTypesTrue.png}
+\includegraphics[scale=0.33]{./images/PiArIntTypesTrueFineBin.png}
+\caption{(LHS): Number of $\pi^{-}$-Argon interaction types as a function of true kinetic energy bin. (RHS): Percentage of each $\pi^{-}$-Argon interaction type per bin. The top set of plots are binned in 50 MeV bins (similar to the analysis) while the bottom plots are binned more finely for illustration}
+\label{fig:TrueInteractionTypes}
+\end{figure}
+
+Figure \ref{fig:TrueInteractionTypesRecoE} shows how this fact is exasperated when we take into account the smearing caused by using the reconstructed kinetic energy. This suggests that excluding the lowest energy bin (between 0~MeV$<$KE$<$50~MeV) may be a prudent move in order to avoid the capture-at-rest sample from contaminating the cross-section.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.33]{./images/PiArIntTypesReco.png}
+\includegraphics[scale=0.33]{./images/PiArIntTypesRecoFineBin.png}
+\caption{(LHS): Number of $\pi^{-}$-Argon interaction types as a function of reconstructed kinetic energy bin. (RHS): Percentage of each $\pi^{-}$-Argon interaction type per bin. The top set of plots are binned in 50 MeV bins (similar to the analysis) while the bottom plots are binned more finely for illustration}
+\label{fig:TrueInteractionTypesRecoE}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Validation Plots} \label{sec:ValidationPlots}
@@ -149,7 +169,7 @@ In this section we will cover a few different aspects of the validation of the d
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{\textbf{Wire-to-Wire Corrections}}
 
-The wire response to charge has been observed to be non-uniform during Run-I and Run-II data taking. The pattern of the wire to wire variation stays fairly consistent across various runs and has been shown to be independent from the track inclination respect to the wire planes, track distance from the wire planes (i.e. from the drift time), track position along the wire and the cold electronics. More detail about these investigations can be found in docDB-1804, with the best current hypothesis for the origin of this oscillation being the WRD cards that drove the 25' cables to the DAQ rack.
+The wire response to charge has been observed to be non-uniform during Run-I and Run-II data taking. The pattern of the wire to wire variation stays fairly consistent across various runs and has been shown to be independent from the track inclination respect to the wire planes, track distance from the wire planes (i.e. from the drift time), track position along the wire and the cold electronics. More detail about these investigations can be found in \href{https://lartpc-docdb.fnal.gov:441/cgi-bin/ShowDocument?docid=1927}{docDB-1927}, with the best current hypothesis for the origin of this oscillation being the WRD cards that drove the 25' cables to the DAQ rack.
 
 
 A correction factor is applied in order to restore the uniformity in the wire response to charge. The left hand side of Figure \ref{fig:wirebywire} shows the variation in the charge for each wire for a set of runs in Run-I. A mean correction factor for each wire is calculated and applied to the data to remove the effect of this non-uniform charge response. The right hand side of Figure \ref{fig:wirebywire} shows the effect of this correction on a sample of Run-I data, for the collection plane.
@@ -164,9 +184,9 @@ A correction factor is applied in order to restore the uniformity in the wire re
 
 \paragraph{\textbf{Electron Lifetime Correction}}
 
-The amount of charge per unit of length $dQ/dx$ collected at the wire plane is dependent on the distance traveled by the ionization charge in LAr because of quenching by the electronegative contaminants. In order to retrieve the original ionization charge, we need to correct for the attenuation factor, expressed in terms of electron lifetime and drift time. The full explanation of the method employed to measure the electron lifetime can be found in DocDb 1804.
+The amount of charge per unit of length $dQ/dx$ collected at the wire plane is dependent on the distance traveled by the ionization charge in LAr because of quenching by the electronegative contaminants. In order to retrieve the original ionization charge, we need to correct for the attenuation factor, expressed in terms of electron lifetime and drift time. The full explanation of the method employed to measure the electron lifetime can be found in docDB-1804.
 
-For Run-I and Run-II data, the electron lifetime is found using a sample of cosmic rays and stored in an online database. When the samples used in this analysis are reconstructed, they have a lifetime correction applied to account for the varying lifetime seen in LArIAT. The details of how this is applied in the calorimetry package is explained in docDB-????. Figure \ref{fig:LifetimeNOchargecorrection} shows an example of the lifetime derived for Run-I and Run-II data.
+For Run-I and Run-II data, the electron lifetime is found using a sample of cosmic rays and stored in an online database. When the samples used in this analysis are reconstructed, they have a lifetime correction applied to account for the varying lifetime seen in LArIAT. The details of how this is applied in the calorimetry package is explained in \href{https://lartpc-docdb.fnal.gov:441/cgi-bin/ShowDocument?docid=1804}{docDB-1804}. Figure \ref{fig:LifetimeNOchargecorrection} shows an example of the lifetime derived for Run-I and Run-II data.
 
 \begin{figure}[h!]
 \centering
@@ -177,14 +197,15 @@ For Run-I and Run-II data, the electron lifetime is found using a sample of cosm
 \end{figure}
 
 \paragraph{\textbf{Calorimetry Constant Tuning}}
-The calorimetry constants used in this data analysis were determined from a sample of data and Monte Carlo spanning Run I and Run II. The calibration method, described in greater detail in docDB-????, is predicated on the Bethe-Bloch description of the mean rate of energy loss for various particle species. The basic idea of this calibration technique is to utilize a portion of a track within the LArTPC that has a well known momentum and particle species to measure the energy deposited per unit length (dE/dX) as recorded inside the TPC. Once a sample of particles dE/dX has been measured at various momentums, we then tune to calorimetry constants within the reconstruction software to align these measured values to match the theoretical ones.
+The calorimetry constants used in this data analysis were determined from a sample of data and Monte Carlo spanning Run I and Run II. The calibration method, described in greater detail in \href{https://lartpc-docdb.fnal.gov:441/cgi-bin/ShowDocument?docid=2513}{docDB-2513}, is predicated on the Bethe-Bloch description of the mean rate of energy loss for various particle species. The basic idea of this calibration technique is to utilize a portion of a track within the LArTPC that has a well known momentum and particle species to measure the energy deposited per unit length (dE/dX) as recorded inside the TPC. Once a sample of particles dE/dX has been measured at various momentums, we then tune to calorimetry constants within the reconstruction software to align these measured values to match the theoretical ones.
 
-Figure \ref{fig:dEdXvsMomentum} shows the calorimetry response for the $\pi, \mu, e$-High-Yield data sample used in this analysis. The selection method for this sample is to take eaccg  track within the TPC that is uniquely matched to a wire-chamber track and use the measured momentum for that track. We require the track to be of a minimum length of 10~cm long (to ensure we are away from any interaction point where the track may be broken into subsequent tracks). We then take the first twelve spacepoints of the track (excluding the first point to avoid edge effects near the field cage) and sample the reconstructed dE/dX for each point along the track. On average, this samples 5~cm of the track and takes the dE/dX measurements are then put into a histogram that corresponds to measured momentum of the track.
+Figure \ref{fig:dEdXvsMomentum} shows the calorimetry response for the $\pi, \mu, e$-High-Yield data sample used in this analysis. The selection method for this sample is to take each  track within the TPC that is uniquely matched to a wire-chamber track and use the measured momentum for that track. We require the track to be of a minimum length of 10~cm long (to ensure we are away from any interaction point where the track may be broken into subsequent tracks). We then take the first twelve spacepoints of the track (excluding the first point to avoid edge effects near the field cage) and sample the reconstructed dE/dX for each point along the track. On average, this samples 5~cm of the track and takes the dE/dX measurements are then put into a histogram that corresponds to measured momentum of the track.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.35]{./images/dEdXvsMomentumCombined.png}
-\caption{dE/dX most probable value (MPV) as a function of momentum for the sample of events used in this analysis. These values are obtained using the calorimetry constants derived in docDB-????}
+\includegraphics[scale=0.33]{./images/dEdXvsMomentumCombined.png}
+\includegraphics[scale=0.33]{./images/dEdXDataFit.png}
+\caption{(LHS)dE/dX most probable value (MPV) as a function of momentum for the sample of events used in this analysis. (RHS) dE/dX for the sample used in this analysis fit with a Landau between 1.25 MeV/cm $<$ dE/dX $<$ 12 MeV/cm (similarly to what was done in the calibration procedure), returning a MPV of 1.589 MeV/cm. These values are obtained using the calorimetry constants derived in \href{https://lartpc-docdb.fnal.gov:441/cgi-bin/ShowDocument?docid=2513}{docDB-2513}}
 \label{fig:dEdXvsMomentum}
 \end{figure}
 
@@ -235,8 +256,46 @@ Here we present a series of low-level plots which validate the data and Monte Ca
 \label{fig:PionMCdEdXvsRR}
 \end{figure}
 
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Energy Reconstruction Cross-Check} \label{sec:ERecoCrossCheck}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Figure \ref{fig:RecoEvsTrueE} shows the reconstructed kinetic energy at the interaction point for a sample of $\pi^{-}$ MC compared to the true energy the pion had at the interaction point. The reconstructed energy at the interaction point is calculated by
+\begin{equation}
+KE_{Interaction} = \sqrt{P_{WCtrk}^2 + m_{\pi}^2} - E_{Loss} - (\Sigma dE/dX_{i} \times Pitch)
+\end{equation}
+where $P_{WCtrk}$ represents the momentum as simulated by the equivalent of the wire-chamber track in the MC, $m_{\pi}$ is the mass of the pion, $E_{Loss}$ is the flat energy correction which takes into account the energy loss due to the interviening material between WC-4 and the front face of the TPC (here assumed to be 40 MeV) and $\Sigma dE/dX_{i} \times Pitch$ is the energy loss using the reconstructed track. This shows very good agreement with a linear regression fit which returns a near diagonal line with a y-intercept close to zero.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[scale=0.38]{./images/RecoEvsTrueE.png}
+\caption{Reconstructed kinetic energy at the interaction point for a sample of DDMC $\pi^{-}$ compared to the kinetic energy of the pion as calculated from Geant4. The plot is fit with a linear regression which returns an R$^{2}$ = 0.87 and a y intercept of -1.72 MeV with a slope of 0.94.}
+\label{fig:RecoEvsTrueE}
+\end{figure}
+
+As a point of comparison, Figure \ref{fig:LengthRecoEvsTrueE} shows the reconstructed kinetic energy at the interaction point versus the true energy at the interaction point where instead of using the calorimetry tools we calculate the reconstructed energy using the length of the track. Here the reconstructed energy is given by 
+\begin{equation}
+KE_{Interaction} = \sqrt{P_{WCtrk}^2 + m_{\pi}^2} - E_{Loss} - (2.1 MeV/cm \times Length_{Reco})
+\end{equation}
+where 2.1 MeV/cm is the mean of the dE/dX distribution and $Length_{Reco}$ is the reconstructed length of the track up to its interaction point. This also gives good agreement with only a slight improvement on the linear regression fit as compared to the sample using the reconstructed calorimetry.
+ 
+\begin{figure}[htb]
+\centering
+\includegraphics[scale=0.38]{./images/LengthRecoEvsTrueE.png}
+\caption{Length based reconstructed kinetic energy at the interaction point for a sample of DDMC $\pi^{-}$ compared to the kinetic energy of the pion as calculated from Geant4. The plot is fit with a linear regression which returns an R$^{2}$ = 0.92 and a y intercept of -1.26 MeV with a slope of 0.95.}
+\label{fig:LengthRecoEvsTrueE}
+\end{figure}
+
+For completeness, the calorimetry based method is compared to the length based method in Figure \ref{fig:CaloMethvsLengthMeth}. The two methods return very nearly to same answer over the range of kinetic energy seen in LArIAT. This gives us confidence in continuing to use the calorimetry based reconstruction of our kinetic energy as the method for calculating the cross-section as a function of kinetic energy.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[scale=0.38]{./images/CaloMethodsCompared.png}
+\caption{(LHS) Length based kinetic energy versus the calorimetry based kinetic energy. (RHS) Calculated the $\Delta$E (True - Reco) for the two methods. Red: Length Based, Blue: Calorimetry Based. }
+\label{fig:CaloMethvsLengthMeth}
+\end{figure}
+
+
 
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Inclusive $\pi^{-}$-Argon Cross-Section} \label{sec:CrossSection}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
